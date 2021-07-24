@@ -2,7 +2,7 @@
 
 This builds the deconz-rest-plugin and injects it into a new [marthoc/deconz](https://github.com/marthoc/docker-deconz) docker image.
 
-**Only tested in amd64.**
+**Only tested on RPI 4 (arm).**
 
 How to use it (example):
 
@@ -16,6 +16,8 @@ docker build -t my-deconz-image --build-arg PLUGIN_REPOSITORY=https://github.com
 Arguments:
 * PLUGIN_REPOSITORY (optional, default: https://github.com/dresden-elektronik/deconz-rest-plugin.git) - If you are testing a fork, just set it to your repository.
 * PLUGIN_GIT_COMMIT (optional, default: master) - In the repository mentioned in PLUGIN_REPOSITORY, which commit do you want to test? Here is where you put the commit hash.
+* MARTHOC_DECONZ_IMAGE_TAG (optional, default: latest) - Which marthoc/deconz tag is the target for injection.
+* DECONZ_PACKAGE_SUFFIX (optional, default: -beta) - Which deconz/deconz-dev package to use for building the REST plugin? Use "" to use last stable package, "-beta" for latest bleeding edge.  
 
 Once built, you can run it exactly the same way as you would run a [marthoc/deconz](https://github.com/marthoc/docker-deconz) image - just replace the image name with `my-deconz-image`.
 
